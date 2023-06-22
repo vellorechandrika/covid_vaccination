@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome, Admin!</h1>
+    <h2>Vaccination Centers</h2>
+    <ul>
+    {% for centre in centres %}
+        <li>
+            {{ centre[1] }} - Working Hours: {{ centre[2] }}
+            <a href="/admin/remove/{{ centre[0] }}">Remove</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <h2>Add Vaccination Center</h2>
+    <form method="POST" action="/admin/add">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="working_hours">Working Hours</label>
+        <input type="text" id="working_hours" name="working_hours" required>
+        <button type="submit">Add</button>
+    </form>
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>

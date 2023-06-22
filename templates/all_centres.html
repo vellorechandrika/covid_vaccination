@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Vaccination Centres</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>All Vaccination Centres</h1>
+    {% if centres %}
+        <ul>
+        {% for centre in centres %}
+            <li>{{ centre[1] }} - Working Hours: {{ centre[2] }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No vaccination centres found.</p>
+    {% endif %}
+    <a href="/dashboard">Back to Dashboard</a><br>
+    <a href="/search">Back to Search for the vaccination centre</a>
+</body>
+</html>

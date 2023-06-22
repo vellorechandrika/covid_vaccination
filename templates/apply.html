@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply for Vaccination Slot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Apply for Vaccination Slot</h1>
+    <h2>{{ centre[1] }}</h2>
+    <p>Working Hours: {{ centre[2] }}</p>
+    <form method="POST" action="/apply/{{ centre[0] }}">
+        <!-- Add your form fields for applying to a vaccination slot -->
+        <button type="submit">Apply</button>
+    </form>
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>

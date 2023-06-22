@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Vaccination Centers</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Search Vaccination Centers</h1>
+    <form method="POST" action="/search">
+        <input type="text" name="query" placeholder="Enter search query" required>
+        <button type="submit">Search</button>
+    </form>
+    <h2>Results for '{{ query }}'</h2>
+    {% if centres %}
+        <ul>
+        {% for centre in centres %}
+            <li>{{ centre[1] }} - Working Hours: {{ centre[2] }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No vaccination centers found.</p>
+    {% endif %}
+    <a href="/dashboard">Back to Dashboard</a>
+    <br>
+    <br>
+    <a href="/get-all-centres">Get All Centres</a>
+    <br>
+    <br>
+    <a href="/get-vaccination-details">Get Vaccination Details</a>
+</body>
+</html>

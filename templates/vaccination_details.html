@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vaccination Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Vaccination Details</h1>
+    {% if details %}
+        <ul>
+        {% for detail in details %}
+            <li>{{ detail[1] }} - Details: {{ detail[2] }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No vaccination details found.</p>
+    {% endif %}
+    <a href="/dashboard">Back to Dashboard</a><br>
+    <a href="/search">Back to Search for the vaccination centre</a>
+</body>
+</html>
